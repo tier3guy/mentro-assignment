@@ -1,6 +1,18 @@
+// Components
+import {
+    ImageContainer,
+} from '../../components';
+
+
+
 const Mentors = () => {
     return (
-        <div>Mentors</div>
+        <div>
+            <ImageContainer 
+                src={"images/ankita.png"}
+                alt="Prankur Gupta" 
+            />
+        </div>
     )
 }
 
