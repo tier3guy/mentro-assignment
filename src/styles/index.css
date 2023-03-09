@@ -1,0 +1,22 @@
+/* Importing Partials File */
+@import url('__partials.css');
+
+
+/* Global Styles */ 
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+}
+
+button{
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+li{
+  list-style: none;
+}

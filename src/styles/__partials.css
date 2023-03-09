@@ -1,0 +1,21 @@
+/* Importing Fonts */
+/*
+    Source: https://fonts.google.com/specimen/Poppins
+    Font Family: Poppins
+    Font Weights: 400, 500, 600, 700
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+/* Variable Declaration */
+:root{
+
+    /* Colors */
+    --white: rgba(255, 255, 255, 1);
+    --black: rgba(0, 0, 0, 1);
+    --primary: rgba(76, 175, 80, 1);
+    --secondary: rgba(197, 248, 199, 1);
+
+    /* Fonts */
+    --font-primary: 'Poppins', sans-serif;
+}
