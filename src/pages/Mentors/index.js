@@ -1,18 +1,13 @@
+// Styles
+import './styles.css';
+
 // Components
-import {
-    ImageContainer,
-} from '../../components';
-
-
+import Wrapper from './wrapper';
 
 const Mentors = () => {
     return (
-        <div>
-            <ImageContainer 
-                src={"images/ankita.png"}
-                alt="Prankur Gupta" 
-            />
-        </div>
+        <Wrapper>
+        </Wrapper>
     )
 }
 

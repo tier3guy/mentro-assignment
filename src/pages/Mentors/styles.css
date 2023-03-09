@@ -1,0 +1,22 @@
+.page-mentor-wrapper{
+    min-height: 100vh;
+    width: 100vw;
+    padding: 2em;
+    background: var(--white);
+}
+
+.page-mentor-circle{
+    background: var(--secondary);
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    position: fixed;
+    top: -600px;
+    right: -100px;
+    z-index: 1;
+}
+
+.page-mentor-contents-wrapper{
+    position: relative;
+    z-index: 2;
+}
