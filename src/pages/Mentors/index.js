@@ -16,25 +16,6 @@ import {
 // Data
 import MentorsData from '../../data/mentors';
 
-
-export function getPosition (referenceIndex, currentIndex, diameter) {
-    
-    const IMAGE_SPACING = 45;
-    const diff = referenceIndex - currentIndex;
-    const radius = diameter / 2;
-
-    const angleToBeAdded = IMAGE_SPACING * diff;
-
-    const horizontal = Math.cos(angleToBeAdded * Math.PI / 180) * radius;
-    const vertical = Math.sin(angleToBeAdded * Math.PI / 180) * radius * -1;
-
-    return {
-        horizontal,
-        vertical
-    }
-}
-
-
 const MentorsDetailsContainer = ({data}) => {
 
     const wholeRatings = Math.floor(data.ratings);
@@ -63,40 +44,41 @@ const MentorsImageContainer = ({data, setCurrentIndex, currentIndex}) => {
 
     return (
         <div className="page-mentors-image-container-wrapper">
-            <div className="page-mentors-image-container">
-                <div className='circle-container'>
-                    {
-                        MentorsData.map((mentor, index) => {
 
-                            const position = getPosition(currentIndex, index, 30);
-
-                            console.log(position);
-
-                            return (
-                                <div 
-                                    className='circle'
-                                    style={{
-                                        marginTop: `-${position.vertical}em`,
-                                        marginLeft: `-${position.horizontal}em`
-                                    }}
-                                >
-                                    <ImageContainer
-                                        src={mentor.image}
-                                        alt={mentor.name}
-                                        onclick={() => setCurrentIndex(index)}
-                                        size="8em"
-                                    />
-                                </div>
-                            )
-                        })
-                    }
+            <div className='clipped-container'>
+                <div className="page-mentors-image-container">
+                    <div className='circle-container-icon'>
+                        {
+                            data.map((item, index) => {
+                                return (
+                                    <div 
+                                        key={index}
+                                        className='circle-container-icon-imgBx'
+                                        style={{
+                                            transform: `rotate(calc(180deg/${data.length} * ${index}))`,
+                                            transformOrigin: '350px'
+                                        }}
+                                    >
+                                        <ImageContainer
+                                            src={item.image}
+                                            alt={item.name}
+                                            size="100px"
+                                            style={{
+                                                transform: `rotate(calc(-180deg/${data.length} * ${index}))`,
+                                            }}
+                                        />
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
 
             <div className="page-mentors-image-container-main-image">
                 <ImageContainer
-                    src={data.image}
-                    alt={data.name}
+                    src={data[currentIndex].image}
+                    alt={data[currentIndex].name}
                 />
                 <div className='page-mentors-image-container-button-container'>
                     <IconButton
@@ -111,7 +93,10 @@ const MentorsImageContainer = ({data, setCurrentIndex, currentIndex}) => {
                     />
 
                     <SecondaryButton
-                        label={data.name}
+                        label={data[currentIndex].name}
+                        style={{
+                            margin: '50px'
+                        }}
                     />
 
                     <IconButton
@@ -126,6 +111,7 @@ const MentorsImageContainer = ({data, setCurrentIndex, currentIndex}) => {
                     />
                 </div>
             </div>
+            
         </div>
     );
 }
@@ -138,7 +124,7 @@ const Mentors = () => {
         <div className="page-mentors">
             <MentorsDetailsContainer data={MentorsData[currentIndex]}/>
             <MentorsImageContainer 
-                data={MentorsData[currentIndex]} 
+                data={MentorsData} 
                 setCurrentIndex={setCurrentIndex}
                 currentIndex={currentIndex}
             />
