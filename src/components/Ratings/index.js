@@ -3,7 +3,7 @@ import Star from "../Star";
 const Ratings = ({rating}) => {
 
     const wholeRating = Math.floor(rating);
-    const decimalRating = rating - wholeRating;
+    const decimalRating = rating - wholeRating - 0.2;
 
     return (
         <div
